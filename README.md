@@ -15,6 +15,8 @@ React Concepts
 >
 > Only define/create one component per file. No matter how small the component it.
 >  
+>  *Remember* to import **React** into all all of the components that are created that contain some **JSX**. This is because returning *JSX* will be translated to something like: ``` React.createElement ```, and if **React** is not in the scope of the file, then react will throw an error.
+>  
 
 ----------
 
@@ -127,10 +129,6 @@ class VideoList extends Component {
 > For more **[controlled components](https://reactjs.org/docs/forms.html)**
 
 ----------
-
-> **Throttling User Input**
-> We use throttling to control how often a function is firing.
-> Here is a good link about (Throttling/Debouncing in React)[https://medium.com/@kasonjim/react-debounce-vs-throttle-11998bfc3212].
 
 
 Flux / Redux
@@ -311,6 +309,42 @@ es6
 > A constant cannot share its name with a function or a variable in the same scope.
 >
 > Check the [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) for more information on ```const```.
+>
+> **import & export**
+>
+> When *importing* javaScript files that we have written, it is required to include a reference to the actual relative path from the file that we're importing it from.
+>
+> example of exporting a component that lives in a file at ``` src/components/search_bar.js ``` and importing that component for use in another file from ``` src/index.js ```:
+```
+//search_bar.js
+import React from 'react';
+
+const SearchBar = () => {
+  return <input />
+};
+
+export default SearchBar;
+
+//index.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import SearchBar from './components/search_bar';
+
+const App = () => {
+  return (
+    <div>
+      <SearchBar />
+    </div>
+  );
+}
+
+ReactDOM.render(<App />, document.querySelector('.container'));
+```
+> A helpful article on [es6 import and export](https://hackernoon.com/import-export-default-require-commandjs-javascript-nodejs-es6-vs-cheatsheet-different-tutorial-example-5a321738b50f) by *HACKERNOON*.
+>
+>
+
 
 ----------
 
@@ -427,6 +461,7 @@ function createWitch(name) {
 >
 > Here is a [link](https://ariya.io/2013/02/es6-and-object-literal-property-value-shorthand) to a good article on **object literal property value shorthand**.
 >  
+
 
 
 javaScript

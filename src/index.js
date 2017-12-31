@@ -1,9 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import SearchBar from './components/search_bar';
+
+const API_KEY = 'AIzaSyCK835dP3blpPk8QDBF5__SxMvzOWRdjMQ';
+
 // Create a new component. This component should produce
 // some HTML
-const App = function() {
-    return <div>Returning some JSX</div>;
+const App = () => {
+  return (
+    <div>
+      <SearchBar />
+    </div>
+  );
 }
 
 // Take this component's ge return <div>hi!</div>;nerated HTML and put it
