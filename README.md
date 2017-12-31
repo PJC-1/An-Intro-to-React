@@ -15,6 +15,9 @@ React Concepts
 >
 > Only define/create one component per file. No matter how small the component it.
 >  
+
+----------
+
 >  *Remember* to import **React** into all all of the components that are created that contain some **JSX**. This is because returning *JSX* will be translated to something like: ``` React.createElement ```, and if **React** is not in the scope of the file, then react will throw an error.
 >  
 
@@ -97,6 +100,37 @@ class VideoList extends Component {
 >  
 >  The constructor function is reserved for doing some set up inside of our class like initializing variables, initializing state, and other things.
 >   
+
+----------
+
+> The **super** keyword is used to access and call functions on a object's parent.
+>  
+>  Lets take a look at our ``` SearchBar ``` component.
+>   
+```
+import React, { Component } from 'react';
+
+class SearchBar extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { term: '' };
+  }
+
+  render() {
+    return <input onChange={event => console.log(event.target.value)} />;
+  }
+}
+
+export default SearchBar;
+```
+> When defining the *SearchBar* class we are *extending* the *React* class **Component**, which has it's own constructor function. So when we define a method that is already defined on the parent class (**Component**) we can call that parent *method* on the parent *class* by  calling *super*.
+>
+>  
+
+----------
+> For more information about **super**, read this link to the [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super).
+
 > Whenever we use state we initialize it by creating a new object and assigning it to ```this.state```.
 > example:
 >  
